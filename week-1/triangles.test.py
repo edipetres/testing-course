@@ -17,3 +17,6 @@ assert(res == None)
 
 res = triangles.specify_triangle(1, 0, -1)
 assert(res == None)
+
+res = triangles.specify_triangle(1, 2, 100)
+assert(res == None)
