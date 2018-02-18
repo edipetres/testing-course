@@ -1,22 +1,31 @@
-import triangles
+import unittest
+from triangles import specify_triangle
 
-res = triangles.specify_triangle(1,2,3)
-assert(res == 'scalene')
+class TestStringMethods(unittest.TestCase):
 
-res = triangles.specify_triangle(1,1,2)
-assert(res == 'isosceles')
+  def test_scalene(self):
+    self.assertEqual(specify_triangle(1, 2, 3), 'scalene')
 
-res = triangles.specify_triangle(5, 5, 5)
-assert(res == 'equilateral')
+  def test_isosceles(self):
+    self.assertEqual(specify_triangle(1, 1, 2), 'isosceles')
+  
+  def test_equilateral(self):
+    self.assertEqual(specify_triangle(5, 5, 5), 'equilateral')
 
-res = triangles.specify_triangle(1, 2, 'm')
-assert(res == None)
+  def test_string_input_val(self):
+    self.assertEqual(specify_triangle(1, 2, 'm'), None)
 
-res = triangles.specify_triangle(1, 2, 0)
-assert(res == None)
+  def test_zero_val(self):
+    self.assertEqual(specify_triangle(1, 2, 0), None)
 
-res = triangles.specify_triangle(1, 0, -1)
-assert(res == None)
+  def test_negative_val(self):
+    self.assertEqual(specify_triangle(1, 5, -2), None)
+  
+  def test_negative_zero_vals(self):
+    self.assertEqual(specify_triangle(1, 0, -1), None)
 
-res = triangles.specify_triangle(1, 2, 100)
-assert(res == None)
+  def test_large_side(self):
+    self.assertEqual(specify_triangle(5, 200, 1), None)
+
+if __name__ == '__main__':
+    unittest.main()

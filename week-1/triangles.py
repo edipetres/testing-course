@@ -15,7 +15,7 @@ def specify_triangle(x, y, z):
     return 'equilateral'
   elif x == y or x == z or y == z:
     return 'isosceles'
-  elif x + y > z or x + z > y or z + y > x:
+  elif x + y >= z and x + z >= y and z + y >= x:
     return 'scalene'
 
 if len(sys.argv) == 4:
