@@ -5,10 +5,11 @@ def specify_triangle(x, y, z):
     x = int(x)
     y = int(y)
     z = int(z)
-  except ValueError:
-    return None
-  
-  if x <= 0 or y <= 0 or z <= 0:
+
+    assert x > 0
+    assert y > 0
+    assert z > 0
+  except:
     return None
 
   if x == y == z:
